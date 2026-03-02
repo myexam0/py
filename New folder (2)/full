@@ -1,0 +1,485 @@
+1.	a) Program to create a numpy array, rank1 array ,rank2 array and create an array from tuple.
+
+
+
+import numpy as np
+array=np.array ([1,2,3])
+rank1_array=np.array([10,20,30])
+rank2_array=np.array([[1,2],[3,4]])
+tuple_array=np.array((5,6,7))
+print(array,rank1_array,rank2_array,tuple_array)
+
+
+
+
+
+
+Output
+
+[1 2 3] [10 20 30] [[1 2]
+ [3 4]] [5 6 7]
+
+
+
+
+
+
+
+
+
+
+b) Program to demonstrate indexing in numpy array.
+
+
+
+
+import numpy as np
+array_1d=np.array([10,20,30,40,50])
+array_2d=np.array([[1,2],[3,4],[5,6]])
+print("Element at index2 (1D):" ,array_1d[2])
+print("Element at (1,1) (2D):" ,array_2d[1,1])
+print("Row 1(2D):", array_2d[1,:])
+
+
+
+
+
+
+Output
+
+Element at index2 (1D): 30
+Element at (1,1) (2D): 4
+Row 1(2D): [3 4]
+
+
+
+
+
+
+
+
+
+2.	a) Program to demonstrate basic operations, unary and binary operations in numpy array.
+
+
+
+
+import numpy as np
+array1=np.array([1,2,3,4])
+array2=np.array([5,6,7,8])
+print("Addition:",array1+array2)
+print("Square root (Unary):",np.sqrt(array1))
+print("Dot product( Binary):",np.dot(array1,array2)) 
+
+
+
+
+
+Output
+
+
+
+Addition: [ 6  8 10 12]
+Square root (Unary): [1.         1.41421356 1.73205081 2.        ]
+Dot product( Binary): 70
+
+
+
+
+
+
+
+
+b) Program to demonstrate vertical and horizontal (stacking and splitting)
+
+
+
+import numpy as np
+array1=np.array([[1,2] , [3,4]])
+array2=np.array([[5,6] , [7,8]])
+v_stack=np.vstack((array1,array2))
+h_stack=np.hstack((array1,array2))
+v_stack=np.vsplit(v_stack,2)
+print("Vertical stack:\n",v_stack)
+print("Horizontal stack:\n",h_stack)
+
+
+
+
+
+Output
+
+
+Vertical stack:
+ [[1 2]
+[3 4]
+[5 6]
+[7 8]]
+Horizontal stack:
+ [[1 2 5 6]
+ [3 4 7 8]]
+
+
+
+
+3.	Program to create a date, array of dates in a month, arithmetic operations on dates and sorting on dates.
+
+
+import numpy as np
+date=np.datetime64('2025-11-01')
+dates_in_month=np.arange('2025-11-01','2025-12-01',dtype='datetime64[D]')
+ten_days_later=date+np.timedelta64(10,'D')
+sorted_dates=np.sort(dates_in_month)
+print("Dates in november 2025:",dates_in_month)
+print("Sorted Dates:",sorted_dates)
+
+
+Output 
+
+Dates in november 2025: ['2025-11-01' '2025-11-02' '2025-11-03' '2025-11-04' '2025-11-05'
+ '2025-11-06' '2025-11-07' '2025-11-08' '2025-11-09' '2025-11-10'
+ '2025-11-11' '2025-11-12' '2025-11-13' '2025-11-14' '2025-11-15'
+ '2025-11-16' '2025-11-17' '2025-11-18' '2025-11-19' '2025-11-20'
+ '2025-11-21' '2025-11-22' '2025-11-23' '2025-11-24' '2025-11-25'
+ '2025-11-26' '2025-11-27' '2025-11-28' '2025-11-29' '2025-11-30']
+Sorted Dates: ['2025-11-01' '2025-11-02' '2025-11-03' '2025-11-04' '2025-11-05'
+ '2025-11-06' '2025-11-07' '2025-11-08' '2025-11-09' '2025-11-10'
+ '2025-11-11' '2025-11-12' '2025-11-13' '2025-11-14' '2025-11-15'
+ '2025-11-16' '2025-11-17' '2025-11-18' '2025-11-19' '2025-11-20'
+ '2025-11-21' '2025-11-22' '2025-11-23' '2025-11-24' '2025-11-25'
+ '2025-11-26' '2025-11-27' '2025-11-28' '2025-11-29' '2025-11-30']
+
+4.	a) Program that uses various methods to apply linear algebra on any numpy array.
+
+
+import numpy as np
+matrix=np.array([[2,1],[1,3]])
+det=np.linalg.det(matrix)
+inv=np.linalg.inv(matrix)
+eigenvalues,eigenvectors=np.linalg.eig(matrix)
+transpose=matrix.T
+print("Matrix:",matrix)
+print("Determinant:",det)
+print("Inverse:\n",inv)
+print("Eigenvalues:",eigenvalues)
+print("Transpose:\n",transpose)
+
+
+
+Output 
+
+Matrix: [[2 1]
+ [1 3]]
+Determinant: 5.000000000000001
+Inverse:
+ [[ 0.6 -0.2]
+ [-0.2  0.4]]
+Eigenvalues: [1.38196601 3.61803399]
+Transpose:
+ [[2 1]
+ [1 3]]
+
+b) Program to create array with all zeros and ones.
+
+
+import numpy as np
+zeros_array=np.zeros((3,3))
+ones_array=np.ones((2,4))
+print("Array of zeros:\n",zeros_array)
+print("Array of ones:\n",ones_array)
+zeros_1d=np.zeros(5)
+ones_1d=np.ones(5)
+print("1D array of zeros:",zeros_1d)
+print("1D array of ones:",ones_1d)
+
+
+
+
+Output
+
+
+Array of zeros:
+ [[0. 0. 0.]
+ [0. 0. 0.]
+ [0. 0. 0.]]
+Array of ones:
+ [[1. 1. 1. 1.]
+ [1. 1. 1. 1.]]
+1D array of zeros: [0. 0. 0. 0. 0.]
+1D array of ones: [1. 1. 1. 1. 1.]
+
+
+
+
+5.	a) Python program to create pandas series with scalar values, default index values and predefined index value.
+
+
+import pandas as pd
+Scalar_Series_default=pd.Series(5,index=[0,1,2,3])
+print("Scalar Series with default Index:\n",Scalar_Series_default)
+predefined_index=pd.Series(10,index=['a','b','c','d'])
+print("\n Scalar Series with predefined Index:\n",predefined_index)
+
+
+
+Output
+
+Scalar Series with default Index:
+ 0    5
+1    5
+2    5
+3    5
+dtype: int64
+
+ Scalar Series with predefined Index:
+ a    10
+b    10
+c    10
+d    10
+dtype: int64
+b) Python program to create Dictionary series, nd array series.
+
+
+import pandas as pd
+import numpy as np
+dict_series=pd.Series({'a':1,'b':2,'c':3})
+print("Dictionary Series:\n",dict_series)
+ndarray_Series=pd.Series(np.array([10,20,30,40]))
+print("\n ndarray series:\n",ndarray_Series)
+
+
+
+
+
+Output
+
+
+Dictionary Series:
+a    1
+b    2
+c    3
+dtype: int64
+
+ndarray series:
+0    10
+1    20
+2    30
+3    40
+dtype: int64
+
+
+
+
+
+
+
+
+c) Program to create data frame with two dictionaries.
+
+
+import pandas as pd
+dic1={'A':[1,2,3],'B':[4,5,6]}
+dic2={'A':[7,8,9],'B':[10,11,12]}
+df=pd.DataFrame([dic1,dic2])
+print("DataFrame from two dictionaries:\n",df)
+
+
+
+
+
+
+
+Output
+
+
+DataFrame from two dictionaries:
+    A               B
+0  [1, 2, 3]     [4, 5, 6]
+1  [7, 8, 9]     [10, 11, 12]
+
+
+
+
+
+
+
+
+
+
+d) Program to create data frame of three series and from 2D array.
+
+
+import pandas as pd
+import numpy as np
+Series1=pd.Series([1,2,3],name='a')
+Series2=pd.Series([4,5,6],name='b')
+Series3=pd.Series([7,8,9],name='c')
+df_from_Series=pd.concat([Series1,Series2,Series3],axis=1)
+print("dataframe from three series:\n",df_from_Series)
+array_2d=np.array([[1,2,3],[4,5,6],[7,8,9]])
+df_from_array=pd.DataFrame(array_2d,columns=['a','b','c'])
+print("\n dataframe from 2D array:\n",df_from_array)
+
+
+
+
+Output
+
+
+
+dataframe from three series:
+a  b  c
+0  1  4  7
+1  2  5  8
+2  3  6  9
+
+dataframe from 2D array:
+a  b  c
+0  1  2  3
+1  4  5  6
+2  7  8  9
+
+
+
+
+6.	Reading data from text files, Excel and the web and exploring various commands for doing descriptive analysis on the Iris data set.
+
+import pandas as pd
+#Reading from a text file(CSV)
+text_data=pd.read_csv('one.csv')
+print("Text file data:\n",text_data.head())
+#Reading from an excel file
+#excel_data=pd.read_excel('data.xlsx')
+#print("\nExcel data:\n",excel_data.head())
+#Reading from a web URL(Iris dataset from UCI)
+url='https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
+iris_data=pd.read_csv(url,header=None,names=['SepalLength','Sepalwidth','petalLength','petelwidth','spacies'])
+#descriptive analytics on this data
+print("\nIris data description:\n",iris_data.describe())
+
+
+Output
+
+Sno     Regno         Name     Mark
+0    1  25PCS031      Syed     100
+1    2        32      Ahamed    99
+2    3        33      Ziya      98
+3    4        34      Riyas     97
+4    5        35      Kadhar    96
+
+Iris data description:
+        SepalLength  Sepalwidth  petalLength  petelwidth
+count   150.000000  150.000000   150.000000  150.000000
+mean      5.843333    3.054000     3.758667    1.198667
+std       0.828066    0.433594     1.764420    0.763161
+min       4.300000    2.000000     1.000000    0.100000
+25%       5.100000    2.800000     1.600000    0.300000
+50%       5.800000    3.000000     4.350000    1.300000
+75%       6.400000    3.300000     5.100000    1.800000
+max       7.900000    4.400000     6.900000    2.500000
+
+
+
+
+
+7.	a) Use the diabetes data set from UCI and Pima Indians Diabetes data set for performing the following:
+a.	Univariate analysis: Frequency, Mean,Median,Mode,Variance,Standard Deviation
+
+
+
+import pandas as pd
+
+url='https://raw.githubusercontent.com/jbrownlee/Datasets/master/pima-indians-diabetes.data.csv'
+columns=['pregnacies','Glucose','Bloodpressure','SkinThickness','Insulin','BMI','DiabetesPedigreeFunction','Age','Outcome']
+data=pd.read_csv(url,names=columns)
+
+mean=data['Glucose'].mean()
+median=data['Glucose'].median()
+mode=data['Glucose'].mode()[0]
+variance=data['Glucose'].var()
+std_dev=data['Glucose'].std()
+
+frequency=data['Outcome'].value_counts()
+
+print(f"Mean:{mean},Median:{median},Mode:{mode},Variance:{variance},Std Dev{std_dev}")
+print(f"Frequency of Outcome:\n{frequency}")
+
+
+Output
+
+Mean:120.89453125,Median:117.0,Mode:99,Variance:1022.2483142519557,Std Dev31.97261819513622
+Frequency of Outcome:
+Outcome
+0    500
+1    268
+Name: count, dtype: int64
+
+
+
+
+
+b) Bivariate analysis: Linear and logistic regression modelling
+
+
+
+
+import pandas as pd
+from sklearn.linear_model import LinearRegression,LogisticRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error,accuracy_score
+
+data=pd.read_csv('https://raw.githubusercontent.com/jbrownlee/Datasets/master/pima-indians-diabetes.data.csv',
+names=['Pregnancies','Glucose','BloodPressure','skinThickness','Insulin','BMI','DiabetesPedigreeFunction','Age','Outcome'])
+x=data[['BMI']];y=data['Glucose'];x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2)
+print("Linear MSE:",mean_squared_error(y_test,LinearRegression().fit(x_train,y_train).predict(x_test)))
+x=data[['Glucose','BMI']];
+y=data['Outcome'];
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2)
+print("Logistic Accuracy:",accuracy_score(y_test,LogisticRegression().fit(x_train,y_train).predict(x_test)))
+
+
+Output
+
+Linear MSE: 928.5314198831558
+Logistic Accuracy: 0.7272727272727273
+
+
+
+
+
+
+
+
+
+
+
+
+c)Multiple Regression analysis
+
+
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
+url='https://raw.githubusercontent.com/jbrownlee/Datasets/master/pima-indians-diabetes.data.csv'
+columns=['Pregnancies','Glucose','BloodPressure','SkinThickness','Insulin','BMI','DiabetesPedigreeFunction','Age','Outcome']
+data=pd.read_csv(url,names=columns)
+x=data[['Pregnancies','BloodPressure','SkinThickness','Insulin','BMI','DiabetesPedigreeFunction','Age']]
+y=data['Glucose']
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2,random_state=42)
+reg_model=LinearRegression().fit(x_train,y_train)
+y_pred=reg_model.predict(x_test)
+print("Multiple Regression MSE:",mean_squared_error(y_test,y_pred))
+
+
+
+
+
+
+
+Output
+
+Multiple Regression MSE: 869.4777053181734
+
+
+
